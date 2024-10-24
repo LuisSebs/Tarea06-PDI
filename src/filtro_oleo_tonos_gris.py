@@ -6,9 +6,9 @@ from PIL import Image
 from utils.progress_bar import progress_bar  # Importa la barra de progreso que ya tienes implementada
 from utils.colores import random_color, rojo, verde, azul, reset
 
-def filtro_oleo_escala_grises(imagen: Image, matriz_size: int = None):
+def filtro_oleo_tonos_gris(imagen: Image, matriz_size: int = None):
     """
-        Aplica el filtro oleo en escala de gris a una imagen.
+        Aplica el filtro oleo en tonos de gris a una imagen.
 
         Parameters :
         ------------
@@ -24,7 +24,7 @@ def filtro_oleo_escala_grises(imagen: Image, matriz_size: int = None):
 
             nueva imagen con el filtro aplicado
     """
-    # Convertir la imagen a escala de grises
+    # Convertir la imagen a tonos de gris
     imagen_gris = imagen.convert('L')
 
     # Dimensiones de la imagen
@@ -38,7 +38,7 @@ def filtro_oleo_escala_grises(imagen: Image, matriz_size: int = None):
     step = matriz_size // 2
 
     # Crear una copia para evitar modificar la imagen mientras la procesamos
-    nueva_imagen = Image.new('L', (ancho,alto))
+    nueva_imagen = imagen.copy().convert('L')
 
     # Calcular el número total de píxeles a procesar (excluyendo bordes)
     total_pixeles = (ancho - 2 * step) * (alto - 2 * step)
@@ -77,7 +77,7 @@ def filtro_oleo_escala_grises(imagen: Image, matriz_size: int = None):
 
     # Mostramos el ultimo progreso
     progress_bar(pixeles_procesados, total_pixeles, color)
-    print(verde+f"Imagen recursiva creada ʕ•ᴥ•ʔ"+reset)
+    print(verde+f"Imagen con filtro oleo en tonos de gris creada ʕ•ᴥ•ʔ"+reset)
     
     return nueva_imagen
 
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     parser.add_argument("salida", help="Ruta del archivo de salida")
 
     # Argumentos opcionales (Matriz Size)
-    parser.add_argument("--ms", type=int, default=None, help="Tamaño de la matriz")
+    parser.add_argument("--ms", type=int, default=None, help="Tamaño de la matriz. Si no especifica se calcula el tamaño de la matriz equivalente al 0.05 porciento del area de la imagen")
 
     # Parseamos los argumentos
     args = parser.parse_args()
@@ -159,4 +159,4 @@ if __name__ == "__main__":
         exit()
     
     # Aplicamos el filtro oleo y la guardamos
-    filtro_oleo_escala_grises(imagen=imagen, matriz_size=args.ms).save(args.salida)
+    filtro_oleo_tonos_gris(imagen=imagen, matriz_size=args.ms).save(args.salida)

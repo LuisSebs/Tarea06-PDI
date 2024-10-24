@@ -38,7 +38,7 @@ def filtro_oleo_color(imagen: Image, matriz_size: int = None):
     step = matriz_size // 2
     
     # Imagen a regresar
-    nueva_imagen = Image.new('RGB', (ancho,alto))
+    nueva_imagen = imagen.copy().convert('RGB')
 
     # Calcular el número total de píxeles a procesar (excluyendo bordes)
     total_pixeles = (ancho - 2 * step) * (alto - 2 * step)
@@ -72,7 +72,7 @@ def filtro_oleo_color(imagen: Image, matriz_size: int = None):
 
     # Mostramos el ultimo progreso 
     progress_bar(pixeles_procesados, total_pixeles, color)   
-    print(verde+f"Imagen recursiva creada ʕ•ᴥ•ʔ"+reset)
+    print(verde+f"Imagen con filtro oleo a color creada ʕ•ᴥ•ʔ"+reset)
     
     return nueva_imagen
 

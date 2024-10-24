@@ -18,26 +18,26 @@
 
 Al ejecutar los ejemplos se generaran imagenes en el directorio `src/`
 
-## Filtro Óleo: Escala de grises
+## Filtro Óleo: Tonos de gris
 
-Ejecución del archivo `filtro_oleo_escala_grises.py`
+Ejecución del archivo `filtro_oleo_tonos_gris.py`
 
 Para saber informacion sobre el programa y los parametros que acepta, ejecuta con **python** o **python3** el siguiente comando:
 
 ```bash
-python3 filtro_oleo_escala_grises.py --help
+python3 filtro_oleo_tonos_gris.py --help
 ```
 
 ### Ejemplos:
 
 **Especificando el tamaño de la matriz**
 ```bash
-python3 filtro_oleo_escala_grises.py ./imagenes/vangogh.png ./vangogh_oleo_gris_6x6.png --ms 6
+python3 filtro_oleo_tonos_gris.py ./imagenes/vangogh.png ./vangogh_oleo_gris_6x6.png --ms 6
 ```
 
 **Sin especificar el tamaño de la matriz**
 ```bash
-python3 filtro_oleo_escala_grises.py ./imagenes/vangogh.png ./vangogh_oleo_gris.png
+python3 filtro_oleo_tonos_gris.py ./imagenes/vangogh.png ./vangogh_oleo_gris.png
 ```
 
 ## Filtro Óleo: Color
