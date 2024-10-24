@@ -1,4 +1,4 @@
-# Tarea06 Proceso Digital de Imagenes: Filtro Óleo
+# Tarea06: Filtro Óleo
 
 <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExY21xdG1xZ2xzaXoxbDdxYTNwOGRsaW4xOXJwZDV5dXdwNWJ2YzdqZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z2y7SdhLm6Uq1pbc1q/giphy-downsized-large.gif"/>
 
